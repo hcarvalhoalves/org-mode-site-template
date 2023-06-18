@@ -1,0 +1,33 @@
+* Emacs Org Mode Site Template
+
+This is a template project to kickstart publishing a complete site using the Emacs Org-Mode HTML export publishing options.
+
+** How the code is structured
+
+- Makefile :: Useful aliases for publishing and testing the site locally.
+- publish.el :: Script to configure the HTML export options of ox-publish.
+- src/ :: All your site sources live here.
+- src/static/ :: Static files, like main CSS and other multimedia files can live here. Media related to individual pages can live anywhere.
+- public/ :: The published site is exported here. This should be your document root on the HTTP server.
+
+** How the publishing works
+
+In the publish.el we configure a project with three components:
+
+- A `static` component that will copy all new or modified media files (defined on `static-extensions`) to `public/`.
+- A `pages` component that will publish all .org files as .html to `public/`, including default headers and footer. This will also generate a sitemap.org file with a list of all other .org files found recursivly under `src/`.
+- A `index` component that publishes the index.orgi file as index.html to `public/`. This is so we can trigger the publishing of the index at the end, after all other files have been created, such that the index can include them.
+
+** Default template
+
+The style defined in `src/static/t.css` is my version of the Tufte CSS [1], stripped-down to a minimal and adapted for mobile.
+
+See an example on how to use its classes on `src/articles/foo.org`.
+
+[1] https://edwardtufte.github.io/tufte-css/
+
+** Testing it
+
+Update $EMACS in the Makefile to point to your Emacs installation and try:
+
+$ make pub test

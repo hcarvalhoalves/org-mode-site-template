@@ -1,0 +1,6 @@
+#+title: Sample site
+#+language: en
+
+This is the index.
+
+#+include: sitemap.org

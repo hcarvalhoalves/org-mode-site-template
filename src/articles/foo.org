@@ -1,0 +1,25 @@
+#+title: An example article
+#+date: <1986-01-01>
+#+language: en
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur interdum tellus non tellus molestie imperdiet. Pellentesque lectus ipsum, gravida in accumsan quis, lacinia eu turpis. Praesent placerat tempus lorem, sed sodales diam aliquet eu. Donec euismod tempor egestas. Quisque id volutpat metus. Donec mattis tristique ligula, sed tristique ipsum ultricies vel. Aliquam et magna eu leo auctor accumsan.
+
+#+attr_html: :class note
+#+caption: This is an example of the ~.note~ class for images
+[[./exports-imports.png]]
+
+Fusce non lacinia mi, sed tempor est. Integer ultrices metus nec nunc malesuada, non rutrum sem condimentum. Etiam quis ante diam. Curabitur nec mi consequat, ultricies leo eu, congue urna. Sed vel accumsan est. Sed vestibulum neque sed orci gravida, eu feugiat nibh congue. Suspendisse leo tortor, pharetra non ipsum vitae, posuere varius sapien. Proin lacus velit, auctor ut aliquam nec, tempus sit amet turpis. Fusce vestibulum bibendum felis in egestas. Integer diam neque, auctor ac pulvinar sit amet, luctus in lectus.
+
+#+attr_html: :class aside
+#+caption: This is an example of the ~.aside~ class for images
+[[./rhino.png]]
+
+Integer ac leo et elit volutpat ultricies eu et eros. Morbi vestibulum metus et quam gravida, sed pharetra dolor mattis. Nullam viverra leo quis mauris condimentum commodo. Donec scelerisque neque erat, non facilisis erat venenatis et. Phasellus eu massa quis leo mollis iaculis. Aenean ex justo, consectetur vel risus vitae, tincidunt hendrerit tortor. Quisque vitae vehicula purus. Nullam ultrices euismod felis, fringilla rutrum orci facilisis imperdiet.
+
+Maecenas auctor porttitor consequat. Cras in porttitor eros. Maecenas tincidunt ornare convallis. Suspendisse ex magna, congue et neque ac, tempus commodo nibh. Cras tellus nisi, vehicula in elit sit amet, viverra pellentesque nulla. Morbi lorem orci, lobortis tempor nisi nec, fermentum finibus odio. Nulla sit amet erat nibh.
+
+#+attr_html: :class full
+#+caption: This is an example of the ~.full~ class for images
+[[./napoleons-march.png]]
+
+Proin a ligula eros. In eget felis odio. Cras leo lectus, mattis in posuere vel, congue sed ex. Cras vulputate ultricies mi nec fringilla. Aliquam sem tortor, volutpat vitae lorem eu, faucibus faucibus lorem. Donec elementum risus et dui maximus cursus. Morbi magna urna, ultricies nec porta condimentum, consectetur non tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean placerat varius lacinia.

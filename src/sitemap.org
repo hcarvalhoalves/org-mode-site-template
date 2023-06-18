@@ -1,0 +1,2 @@
+- articles
+  - [[file:articles/foo.org][An example article]]
