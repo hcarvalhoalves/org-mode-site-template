@@ -3,9 +3,6 @@ EMACS = /Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs
 clean:
 	rm -vr public/*
 
-touch:
-	find . -name "*.org" | xargs touch
-
 pub:
 	$(EMACS) $< --batch --load publish.el --eval="(org-publish-all)"
 

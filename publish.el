@@ -1,34 +1,8 @@
 (require 'ox-publish)
 
-;; --- Main configurations for your project
+(load-file "./config.el")
 
-(setq author "Author")
-(setq email "foo@example.org")
-
-;; Default HTML to include at the top if #+options: html-preamble:t
-(setq custom-html-preamble-format
-      '(("en" "Published %d")))
-
-;; Default HTML to include at the footer if #+options: html-postamble:t
-(setq custom-html-postamble-format
-      '(("en" "&copy; %a. Contact me at &lt;%e&gt;")))
-
-;; Custom HTML to include inside <head>
-(setq custom-html-head "\
-<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-<link rel=\"stylesheet\" href=\"/static/t.css\"/>")
-
-;; Custom HTML to build a navigation bar (only applies when :html-link-home is non-nil)
-(setq custom-html-nav "\
-<nav><a href=\"/\" tabindex=\"0\">&larrhk; Back to Index</a></nav>")
-
-;; List of extensions considered static files
-(setq static-extensions "css\\|svg\\|csv\\|png\\|jpg\\|jpeg\\|gif")
-
-;; Other static files to include explicitly
-(setq static-include '(".htaccess"))
-
-;; --- Customize the following as necessary
+;; --- Usually you just need to change config.el. Customize the following as necessary
 
 ;; Function to style the sitemap
 (defun sitemap-function (title list)
@@ -71,7 +45,7 @@
 	 :html-html5-fancy t
 	 :html-head-include-scripts nil
 	 :html-head-include-default-style nil
-	 :html-metadata-timestamp-format "%Y-%m-%d"
+	 :html-metadata-timestamp-format ,custom-timestamp-format
 	 :html-head ,custom-html-head
 	 :html-home/up-format ,custom-html-nav
 	 :html-link-home "/"
@@ -94,7 +68,7 @@
 	 :html-html5-fancy t
 	 :html-head-include-scripts nil
 	 :html-head-include-default-style nil
-	 :html-metadata-timestamp-format "%Y-%m-%d"
+	 :html-metadata-timestamp-format ,custom-timestamp-format
 	 :html-head ,custom-html-head
 	 :html-postamble t
 	 :html-postamble-format ,custom-html-postamble-format)
