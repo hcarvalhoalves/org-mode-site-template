@@ -4,12 +4,11 @@ Inspired by https://edwardtufte.github.io/tufte-css/
 */
 
 /* Typography */
-body { font-family: "Palatino", "Georgia", serif; font-size: 18px; line-height: 1.8rem; }
+body { font-family: "Palatino Linotype", Palatino, "Georgia", serif; font-size: 19px; line-height: 2rem; }
 h1,h2,h3,h4,h5,h6 { font-weight: 400; }
 h2,h3,h4,h5,h6 { font-style: italic; }
-h1 { margin: 0 0 1.5rem; }
 a:visited { color: LinkText; }
-pre,code,tt { font-family: ui-monospace, monospace; font-size: 0.9em; }
+pre,code,tt { font-family: "Consolas", ui-monospace, monospace; font-size: 0.9em; }
 
 /* Base layout */
 figure { text-align: center; }
@@ -40,6 +39,9 @@ img { max-width: 100%; }
 }
 
 /* Org-mode specific selectors */
-#preamble { margin: 4rem 0 1.5rem; }
-#postamble { margin: 1.5rem 0 4rem; clear: both; }
+#preamble,
+.content { margin-top: 4rem; }
+#preamble + .content { margin: 0; }
+#postamble { margin-bottom: 4rem; clear: both; }
+.title { font-size: 2.4rem; line-height: 1; }
 .subtitle { font-size: 1.5rem; font-style: italic; }
