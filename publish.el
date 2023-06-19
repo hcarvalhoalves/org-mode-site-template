@@ -1,42 +1,44 @@
 (require 'ox-publish)
 
+;; --- Main configurations for your project
+
 (setq author "Author")
 (setq email "foo@example.org")
-(setq publish-timestamp? nil)
 
+;; Default HTML to include at the top if #+options: html-preamble:t
 (setq custom-html-preamble-format
       '(("en" "Published %d")))
 
+;; Default HTML to include at the footer if #+options: html-postamble:t
 (setq custom-html-postamble-format
       '(("en" "&copy; %a. Contact me at &lt;%e&gt;")))
 
-(setq custom-html-head "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<link rel=\"stylesheet\" href=\"/static/t.css\"/>")
-(setq custom-html-nav "<nav><a href=\"/\" tabindex=\"0\">&larrhk; Back to Index</a><hr/></nav>")
+;; Custom HTML to include inside <head>
+(setq custom-html-head "\
+<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+<link rel=\"stylesheet\" href=\"/static/t.css\"/>")
 
+;; Custom HTML to build a navigation bar (only applies when :html-link-home is non-nil)
+(setq custom-html-nav "\
+<nav><a href=\"/\" tabindex=\"0\">&larrhk; Back to Index</a></nav>")
+
+;; List of extensions considered static files
 (setq static-extensions "css\\|svg\\|csv\\|png\\|jpg\\|jpeg\\|gif")
 
-(setq make-backup-files nil)
+;; Other static files to include explicitly
+(setq static-include '(".htaccess"))
 
-(setq org-export-global-macros
-      '(("timestamp" . "@@html:<time class=\"dt-published\">$1</time>@@")))
+;; --- Customize the following as necessary
 
+;; Function to style the sitemap
 (defun sitemap-function (title list)
   (org-list-to-org list))
 
+;; Function to format each sitemap entry
 (defun sitemap-format-entry (entry style project)
-  (cond ((string= "index.org" entry)
-	 "")
-	((not (directory-name-p entry))
-	 (if publish-timestamp?
-	     (format "{{{timestamp(%s)}}} [[file:%s][%s]]"
-		     (format-time-string "%Y-%m-%d" (org-publish-find-date entry project))
-                     entry
-                     (org-publish-find-title entry project))
-             (format "[[file:%s][%s]]"
-                     entry
-                     (org-publish-find-title entry project))))
+  (cond ((not (directory-name-p entry))
+	 (format "[[file:%s][%s]]" entry (org-publish-find-title entry project)))
         ((eq style 'tree)
-         ;; Return only last subdir.
          (file-name-nondirectory (directory-file-name entry)))
         (t
 	 entry)))
@@ -46,12 +48,14 @@
 	 :recursive t
          :base-directory "src/"
          :base-extension ,static-extensions
+	 :include ,static-include
          :publishing-directory "public/"
          :publishing-function org-publish-attachment)
 	("pages"
 	 :recursive t
          :base-directory "src/"
          :base-extension "org"
+	 :exclude "index.org"
          :publishing-directory "public/"
          :publishing-function org-html-publish-to-html
 	 :with-toc nil
@@ -71,14 +75,15 @@
 	 :html-head ,custom-html-head
 	 :html-home/up-format ,custom-html-nav
 	 :html-link-home "/"
-	 :html-preamble nil,
+	 :html-preamble t,
 	 :html-postamble t,
 	 :html-preamble-format ,custom-html-preamble-format
 	 :html-postamble-format ,custom-html-postamble-format)
 	("index"
-	 :recursive t
+	 :recursive nil
          :base-directory "src/"
-         :base-extension "orgi" ;; Trick to avoid including the index on the sitemap itself
+         :base-extension ""
+	 :include ("index.org")
          :publishing-directory "public/"
          :publishing-function org-html-publish-to-html
 	 :with-toc nil
