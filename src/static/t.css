@@ -1,26 +1,45 @@
+/*
+Base CSS from https://github.com/hcarvalhoalves/org-mode-site-template/
+Inspired by https://edwardtufte.github.io/tufte-css/
+*/
+
+/* Typography */
 body { font-family: "Palatino", "Georgia", serif; font-size: 18px; line-height: 1.8rem; }
-pre,code,tt { font-family: ui-monospace, monospace; font-size: 0.9em; }
 h1,h2,h3,h4,h5,h6 { font-weight: 400; }
 h2,h3,h4,h5,h6 { font-style: italic; }
+h1 { margin: 0 0 1.5rem; }
 a:visited { color: LinkText; }
+pre,code,tt { font-family: ui-monospace, monospace; font-size: 0.9em; }
+
+/* Base layout */
+figure { text-align: center; }
+p,figcaption { text-align: justify; }
 p,figure,ul,ol,dl,table { margin: 0 0 2rem; }
 li > ul, li > ol { margin: 0; }
 img { max-width: 100%; }
-figure { text-align: center; }
-p,figcaption { text-align: justify; }
-@media screen and (min-width: 1024px) {
-    body { margin: 2rem 0 4rem 12.5%; width: 87.5%; }
-    ul,ol,dl,table,figure { width: 87.5%; }
-    p,figure { width: 50%; }
-    figure:has(.note), figure:has(.full) { clear: both; }
-    figure:has(.note) figcaption { float: right; clear: right; width: 75%; margin-right: -80%; position: relative; }
+
+/* Book layout on big screen */
+@media (min-width: 1024px) {
+    body { margin-left: 12.5%; width: 87.5%; }
+    ul,ol,dl,table,nav { width: 87.5%; }
+    p,figure { width: 55%; }
+    figure:has(.note),
+    figure:has(.full) { clear: both; }
+    figure:has(.note) figcaption { float: right; clear: right; width: 70%; margin-right: -75%; position: relative; }
     figure:has(.aside) { float: right; clear: right; width: 27.5%; margin-right: 12.5%; position: relative; }
+    figure:has(.note) figcaption,
+    figure:has(.aside) figcaption { font-size: 0.9em; }
     figure:has(.full) { width: 87.5%; }
-    figure:has(.full) figcaption { text-align: match-parent; float: none; clear: unset; width: unset; margin: unset; }
-    figure:has(.triptych), figure:has(.diptych) { display: inline-block; vertical-align: top; }
+    figure:has(.triptych),
+    figure:has(.diptych) { display: inline-block; vertical-align: top; }
+    figure:has(.triptych) figcaption,
+    figure:has(.diptych) figcaption { margin: 0 1rem 0 0; }
     figure:has(.triptych) { width: 29%; }
     figure:has(.diptych) { width: 43.75%; }
 	       
 }
-.content { width: 100%; }
-#preamble, #postamble { clear: both; }
+
+/* Org-mode specific selectors */
+#preamble { margin: 4rem 0 1.5rem; }
+#postamble { margin: 1.5rem 0 4rem; clear: both; }
+.subtitle { font-size: 1.5rem; font-style: italic; }
