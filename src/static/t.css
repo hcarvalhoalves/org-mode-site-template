@@ -3,17 +3,25 @@ Base CSS from https://github.com/hcarvalhoalves/org-mode-site-template/
 Inspired by https://edwardtufte.github.io/tufte-css/
 */
 
+html { font-size: 15px; }
+body { background-color: #fffff8; color: #111; }
+
+@media (prefers-color-scheme: dark) {
+    body { background-color: #151515; color: #ddd; }}
+
 /* Typography */
-body { font-family: "Palatino Linotype", Palatino, "Georgia", serif; font-size: 19px; line-height: 2rem; }
+body { font-family: Palatino, Georgia, serif; }
+pre,code,tt { font-family: "Consolas", ui-monospace, monospace; font-size: 0.9em; }
+a:visited { color: LinkText; }
 h1,h2,h3,h4,h5,h6 { font-weight: 400; }
 h2,h3,h4,h5,h6 { font-style: italic; }
-a:visited { color: LinkText; }
-pre,code,tt { font-family: "Consolas", ui-monospace, monospace; font-size: 0.9em; }
+p,figure,ul,ol,dl,table { font-size: 1.3rem; line-height: 2rem; margin: 0 0 2rem; }
+figcaption { font-size: 1.1rem; }
 
 /* Base layout */
 figure { text-align: center; }
-p,figcaption { text-align: justify; }
 p,figure,ul,ol,dl,table { margin: 0 0 2rem; }
+p,figcaption { text-align: justify; }
 li > ul, li > ol { margin: 0; }
 img { max-width: 100%; }
 
@@ -24,10 +32,8 @@ img { max-width: 100%; }
     p,figure { width: 55%; }
     figure:has(.note),
     figure:has(.full) { clear: both; }
-    figure:has(.note) figcaption { float: right; clear: right; width: 70%; margin-right: -75%; position: relative; }
+    figure:has(.note) figcaption { float: right; clear: right; width: 50%; margin-right: -60%; position: relative; }
     figure:has(.aside) { float: right; clear: right; width: 27.5%; margin-right: 12.5%; position: relative; }
-    figure:has(.note) figcaption,
-    figure:has(.aside) figcaption { font-size: 0.9em; }
     figure:has(.full) { width: 87.5%; }
     figure:has(.triptych),
     figure:has(.diptych) { display: inline-block; vertical-align: top; }
