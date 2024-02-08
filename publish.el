@@ -17,20 +17,22 @@
         (t
 	 entry)))
 
+(setq target-dir "docs/")
+
 (setq org-publish-project-alist
       `(("static"
 	 :recursive t
          :base-directory "src/"
          :base-extension ,static-extensions
 	 :include ,static-include
-         :publishing-directory "public/"
+         :publishing-directory ,target-dir
          :publishing-function org-publish-attachment)
 	("pages"
 	 :recursive t
          :base-directory "src/"
          :base-extension "org"
 	 :exclude "index.org"
-         :publishing-directory "public/"
+         :publishing-directory ,target-dir
          :publishing-function org-html-publish-to-html
 	 :with-toc nil
 	 :section-numbers nil
@@ -58,7 +60,7 @@
          :base-directory "src/"
          :base-extension ""
 	 :include ("index.org")
-         :publishing-directory "public/"
+         :publishing-directory ,target-dir
          :publishing-function org-html-publish-to-html
 	 :with-toc nil
 	 :section-numbers nil
